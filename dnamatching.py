@@ -47,3 +47,5 @@ for lr in longReads:
     print(i)
     print(totaled/i)
 
+print(i)
+print(totaled/i)

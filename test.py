@@ -1,5 +1,9 @@
 import Levenshtein
 
+def create_buckets(reads):
+    
+
+
 
 def create_buckets(shortread):
     buckets = [[shortread[0]]]
@@ -7,11 +11,16 @@ def create_buckets(shortread):
     ctr = 0
     for i in shortread:
         for x in buckets:
-            if edit_distance(i, x[0]) < 1:
-                x[0].append(shortRead.pop(0))
+            if Levenshtein.distance(i, x[0]) <= 3:
+                x.append(i)
             else:
-                buckets.append[[i]]
-        i+=1
+                buckets.append([i])
+        ctr+=1
+        if ctr==100:
+            exit
+    
+    return buckets
+
 
 
 f = open('long_read.txt', "r")
@@ -29,6 +38,9 @@ for x in shortReads:
     i+=1
 
 
+buckets = create_buckets(shortReads)
+print(buckets)
+'''
 totaled = 0
 final = []
 mini = 999
@@ -47,3 +59,4 @@ for lr in longReads:
     print(i)
     print(totaled/i)
 
+'''
