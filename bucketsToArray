@@ -1,0 +1,27 @@
+buckets = []
+bucketsKeys = []
+buckDict = {}
+with open('buckets-4.txt', 'r') as input_file:
+    for line in input_file:
+        buckets.append(line.strip())  
+
+
+
+
+print(len(bucketsKeys))
+
+for i in buckets:
+    temp = i.split(':')
+    bucketsKeys.append(temp[0].strip())
+
+
+for i in buckets:
+    temp = i.split(':')
+    key = temp[0].strip()
+    values = temp[1].split()
+    
+    values = [int(value) for value in values]
+    values = [bucketsKeys[value-1] for value in values]
+    buckDict[key] = values
+
+print(buckDict)
