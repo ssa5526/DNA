@@ -4,14 +4,14 @@ f = open('long_read_4.txt', "r")
 longReads = f.readlines()
 i = 0
 for x in longReads: 
-    longReads[i] = x[:-2]
+    longReads[i] = x[:]
     i+=1
     
 q = open('short_read_4.txt', "r")
 shortReads = q.readlines()
 i = 0
 for x in shortReads: 
-    shortReads[i] = x[:-1]
+    shortReads[i] = x[:]
     i+=1
 
 
